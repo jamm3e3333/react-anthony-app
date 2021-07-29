@@ -1,19 +1,23 @@
 import React from 'react';
 import classes from './App.module.css';
 import Card from './components/UI/Card';
-import ParkingInfoParagraph from './components/ParkingInfo/ParkingInfo/ParkingInfoParagraph';
+import ParkingCard from './components/ParkingInfoComponents/ParkingCard'
+import CardItem from './components/UI/CardItem'
+
 
 function App() {
   return (
       <div className={classes['header__main']}>
         <Card>
-          <p>ahoj</p>
+          <CardItem>
+            <p>ahoj</p>
+          </CardItem>
         </Card>
         <Card>
-          <ParkingInfoParagraph 
-            title="Parkovaci doba"
-            data={new Date().toISOString()}
-          />
+          <ParkingCard />
+          <CardItem>
+            <p>5 nejdéle obsazených parkovacích míst</p>
+          </CardItem>
         </Card>
       </div>
   );
