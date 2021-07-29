@@ -1,0 +1,10 @@
+.parking__info--paragraph {
+    border-top: 0.2rem solid #777;
+    padding: .5rem 0 0 0;
+    display: flex;
+}
+
+.parking__info--item {
+    flex: 1;
+    text-align: left;
+}

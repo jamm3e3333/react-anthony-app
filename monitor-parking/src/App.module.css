@@ -1,0 +1,12 @@
+.header__main {
+    display: flex;
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 736px) {
+    .header__main {
+        width: 100%;
+        display: block;
+    }
+}
