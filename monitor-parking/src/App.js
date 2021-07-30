@@ -17,7 +17,7 @@ const App = () => {
     {
       id: 'lot0',
       occupated: true,
-      parkingStart: 1627643300000,
+      parkingStart: 627643300000,
     },
     {
       id: 'lot1',
@@ -88,6 +88,11 @@ const App = () => {
       id: 'lot14',
       occupated: true,
       parkingStart: 1627640540000,
+    },
+    {
+      id: 'lot15',
+      occupated: true,
+      parkingStart: 1620000000000,
     },
   ]}
   return (
