@@ -2,6 +2,7 @@
     padding: 2rem;
     margin: 1rem 1rem;
     box-shadow: 0 .8rem 2rem rgba(0,0,0,0.25);
+    animation: moveUp 1s ease-out;
 }
 
 .card__item div {
@@ -49,5 +50,16 @@
     }
     .card__item .card__item--blue {
         transform: none;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -9,6 +9,7 @@ const ParkingTiming = props => {
                             
     return (
         <CardItem>
+            <p>5 nejdéle obsazených parkovacíh míst</p>
             {parkingTimingItemSorted.slice(0,5)
                                     .map((item) => {
                 return (
