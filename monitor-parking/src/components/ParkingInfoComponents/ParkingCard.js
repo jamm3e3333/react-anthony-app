@@ -1,41 +1,50 @@
 import { Fragment } from 'react';
 
 import classes from '../UI/CardItem.module.css';
+import classesPara from './ParkingInfo/ParkingInfoParagraph.module.css';
 
 import CardItem from '../UI/CardItem';
 import ParkingInfoParagraph from './ParkingInfo/ParkingInfoParagraph';
 
 const ParkingCard = props => {
-    const date = new Date();
+    let freeSpace = 0;
+    props.items.parkingLots.forEach((item) => {
+        if(!item.occupated) {
+            freeSpace++;
+        }
+    });
+    const occupatedSpace = props.items.parkingLots.length - freeSpace;
+
+    const avgOccupated = ((occupatedSpace/props.items.parkingLots.length) *100).toFixed(1);
 
     return ( 
         <Fragment>
             <CardItem>
-                <ParkingInfoParagraph 
+                <ParkingInfoParagraph className={classesPara['parking__info--grey']} 
                     title="Parkovací doba"
-                    data={`${date.toLocaleDateString()} ${date.toLocaleTimeString()}`}
+                    data={`${props.items.lastDetection.toLocaleDateString()} ${props.items.lastDetection.toLocaleTimeString()}`}
                 />
-                <ParkingInfoParagraph 
+                <ParkingInfoParagraph className={classesPara['parking__info--grey']}
                     title="Počet volných parkovacích míst"
-                    data={5}
+                    data={freeSpace}
                 />
-                <ParkingInfoParagraph 
+                <ParkingInfoParagraph className={classesPara['parking__info--grey']}
                     title="Počet obsazených parkovacích míst"
-                    data={3}
+                    data={occupatedSpace}
                 />
-                <ParkingInfoParagraph 
+                <ParkingInfoParagraph className={classesPara['parking__info--grey']}
                     title="Celkový počet parkovacích míst"
-                    data={50}
+                    data={props.items.parkingLots.length}
                 />
             </CardItem>
             <CardItem>
                 <p>Průměrná obsazenost parkoviště</p>
                 <div>
-                    ahoj
+                    Graf
                 </div>
-                <div className={classes['card__item--blue']}>
-                    <p>78%</p>
-                </div>  
+                <div>
+                    <p className={classes['card__item--blue']}>{`${avgOccupated}%`}</p>
+                </div>
             </CardItem>
         </Fragment>
     )
