@@ -1,5 +1,9 @@
 import React from 'react';
+
 import classes from './App.module.css';
+
+import MapImg from './assets/map__view.png';
+
 import Card from './components/UI/Card';
 import ParkingCard from './components/ParkingInfoComponents/ParkingCard'
 import CardItem from './components/UI/CardItem'
@@ -10,7 +14,7 @@ function App() {
       <div className={classes['header__main']}>
         <Card>
           <CardItem>
-            <p>ahoj</p>
+            <img src={MapImg} alt="map view" />
           </CardItem>
         </Card>
         <Card>

@@ -3,10 +3,11 @@
     width: 50%;
 }
 
-@media (max-width: 736px) {
+@media (max-width: 999px) {
     .card {
         margin: auto;
         margin-top: 3rem;
         margin-bottom: 3rem;
+        width: 90%;
     }
 }

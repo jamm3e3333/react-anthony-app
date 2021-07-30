@@ -1,6 +1,53 @@
 .card__item {
-    display: block;
     padding: 2rem;
     margin: 1rem 1rem;
     box-shadow: 0 .8rem 2rem rgba(0,0,0,0.25);
+}
+
+.card__item .card__item--blue {
+    color: rgb(0, 145, 255);
+    background: rgba(138, 227, 255, 0.8);
+    text-align: center;
+    flex: 1;
+    margin: auto;
+    border-radius: 10rem;
+    width: 15%;
+}
+
+.card__item div { 
+    display: flex;
+}
+
+.card__item .card__item--blue p {
+    padding: 0;
+    margin: 0;
+    margin: auto;
+}
+
+.card__item img {
+    display: block;
+    margin: auto;
+    width: 42rem;
+}
+
+@media (max-width: 999px) {
+    .card__item img {
+        width: 40rem;
+    }
+}
+
+@media (max-width: 551px) {
+    .card__item img {
+        width: 22rem;
+    }
+}
+@media (max-width: 831px) {
+    .card__item img {
+        width: 50%;
+    }
+}
+@media (max-width: 731px) {
+    .card__item .card__item--blue {
+        width: 20%;
+    }
 }

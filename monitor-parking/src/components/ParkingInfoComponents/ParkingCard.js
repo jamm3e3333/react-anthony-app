@@ -1,5 +1,7 @@
 import { Fragment } from 'react';
 
+import classes from '../UI/CardItem.module.css';
+
 import CardItem from '../UI/CardItem';
 import ParkingInfoParagraph from './ParkingInfo/ParkingInfoParagraph';
 
@@ -28,6 +30,12 @@ const ParkingCard = props => {
             </CardItem>
             <CardItem>
                 <p>Průměrná obsazenost parkoviště</p>
+                <div>
+                    ahoj
+                </div>
+                <div className={classes['card__item--blue']}>
+                    <p>78%</p>
+                </div>  
             </CardItem>
         </Fragment>
     )
