@@ -15,7 +15,7 @@ const ParkingMap = props => {
                       x={item.coord.x} 
                       y={item.coord.y} 
                       radius={8} 
-                      fill={item.occupated ? "red" : "green"} 
+                      fill={item.occupated ? "rgb(252, 3, 3)" : "rgb(3, 252, 32)"} 
                     />
                   )
                 })}
