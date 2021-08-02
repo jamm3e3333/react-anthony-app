@@ -9,5 +9,5 @@ body {
   line-height: 1.7;
   color: #888;
   padding: 1rem;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }

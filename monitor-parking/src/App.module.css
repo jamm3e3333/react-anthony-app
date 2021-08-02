@@ -4,7 +4,11 @@
     left: 0;
 }
 
-@media (max-width: 736px) {
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1100px) {
     .header__main {
         width: 100%;
         display: block;
