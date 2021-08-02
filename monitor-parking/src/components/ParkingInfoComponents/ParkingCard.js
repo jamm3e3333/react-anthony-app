@@ -21,7 +21,7 @@ const ParkingCard = props => {
         <Fragment>
             <CardItem>
                 <ParkingInfoParagraph className={classesPara['parking__info--grey']} 
-                    title="Parkovací doba"
+                    title="Poslední detekce"
                     data={`${props.items.lastDetection.toLocaleDateString()} ${props.items.lastDetection.toLocaleTimeString()}`}
                 />
                 <ParkingInfoParagraph className={classesPara['parking__info--grey']}
