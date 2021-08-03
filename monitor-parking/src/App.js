@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
-
 import classes from './App.module.css';
 
 import Card from './components/UI/Card';
 import ParkingCard from './components/ParkingInfoComponents/ParkingCard'
 import ParkingTiming from './components/ParkingInfoComponents/ParkingTiming/ParkingTiming';
 import ParkingMap from './components/ParkingInfoComponents/ParkingMap';
-const url = 'http://localhost:3010/monitor/data';
 
 
 const App = () => {
-  const coords = [
+  const parkingInfo = {
+    lastDetection: new Date(),
+    parkingLots: [
     {
       id: 'lot0',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 10,
         y: 150
@@ -20,6 +21,8 @@ const App = () => {
     },
     {
       id: 'lot1',
+      occupated: true,
+      parkingStart: 1627646500000,
       coord: {
         x: 30,
         y: 170
@@ -27,6 +30,8 @@ const App = () => {
     },
     {
       id: 'lot2',
+      occupated: true,
+      parkingStart: 1627640005000,
       coord: {
         x: 50,
         y: 190
@@ -34,6 +39,8 @@ const App = () => {
     },
     {
       id: 'lot3',
+      occupated: true,
+      parkingStart: 1627640075000,
       coord: {
         x: 90,
         y: 210
@@ -41,6 +48,8 @@ const App = () => {
     },
     {
       id: 'lot4',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 120,
         y: 190
@@ -48,6 +57,8 @@ const App = () => {
     },
     {
       id: 'lot5',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 150,
         y: 170
@@ -55,6 +66,8 @@ const App = () => {
     },
     {
       id: 'lot6',
+      occupated: true,
+      parkingStart: 1627640780000,
       coord: {
         x: 180,
         y: 150
@@ -62,6 +75,8 @@ const App = () => {
     },
     {
       id: 'lot7',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 210,
         y: 130
@@ -69,6 +84,8 @@ const App = () => {
     },
     {
       id: 'lot8',
+      occupated: true,
+      parkingStart: 1627640870000,
       coord: {
         x: 240,
         y: 110
@@ -76,6 +93,8 @@ const App = () => {
     },
     {
       id: 'lot9',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 270,
         y: 90
@@ -83,6 +102,8 @@ const App = () => {
     },
     {
       id: 'lot10',
+      occupated: true,
+      parkingStart: 162764060000,
       coord: {
         x: 180,
         y: 260
@@ -90,6 +111,8 @@ const App = () => {
     },
     {
       id: 'lot11',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 210,
         y: 240
@@ -97,6 +120,8 @@ const App = () => {
     },
     {
       id: 'lot12',
+      occupated: false,
+      parkingStart: 0,
       coord: {
         x: 240,
         y: 220
@@ -104,6 +129,8 @@ const App = () => {
     },
     {
       id: 'lot13',
+      occupated: true,
+      parkingStart: 1627646500000,
       coord: {
         x: 270,
         y: 200
@@ -111,6 +138,8 @@ const App = () => {
     },
     {
       id: 'lot14',
+      occupated: true,
+      parkingStart: 1627640540000,
       coord: {
         x: 300,
         y: 180
@@ -118,6 +147,8 @@ const App = () => {
     },
     {
       id: 'lot15',
+      occupated: true,
+      parkingStart: 1620000000000,
       coord: {
         x: 330,
         y: 160
@@ -125,6 +156,8 @@ const App = () => {
     },
     {
       id: 'lot16',
+      occupated: true,
+      parkingStart: 1620000000000,
       coord: {
         x: 240,
         y: 270
@@ -132,6 +165,8 @@ const App = () => {
     },
     {
       id: 'lot17',
+      occupated: true,
+      parkingStart: 1620000000000,
       coord: {
         x: 270,
         y: 250
@@ -139,6 +174,8 @@ const App = () => {
     },
     {
       id: 'lot18',
+      occupated: true,
+      parkingStart: 1620000000000,
       coord: {
         x: 300,
         y: 230
@@ -146,6 +183,8 @@ const App = () => {
     },
     {
       id: 'lot19',
+      occupated: true,
+      parkingStart: 1620000000000,
       coord: {
         x: 330,
         y: 210
@@ -153,42 +192,22 @@ const App = () => {
     },
     {
       id: 'lot20',
+      occupated: true,
+      parkingStart: 1620000000000,
       coord: {
         x: 360,
         y: 190
       }
     }
-  ];
-
-  const [parkingInfoState, setParkingInfoState] = useState(undefined);
-
-  const fetchData = async () => {
-    try{
-      const response = await fetch(url);
-      if(response.status !== 200) {
-        throw new Error();
-      }
-      const data = await response.json();
-      console.log(data);
-    }
-    catch(e){
-      console.log(e);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData])
-  
-
+  ]}
   return (
       <div className={classes['header__main']}>
         <Card>
-          {/* <ParkingMap items={parkingInfoState} /> */}
+          <ParkingMap items={parkingInfo}/>
         </Card>
         <Card>
-          {/* <ParkingCard items={parkingInfoState} /> */}
-          {/* <ParkingTiming items={parkingInfoState} /> */}
+          <ParkingCard items={parkingInfo} />
+          <ParkingTiming items={parkingInfo} />
         </Card>
       </div>
   );
