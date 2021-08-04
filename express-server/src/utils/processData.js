@@ -5,7 +5,7 @@ const generateData = () => {
         parkingLots: []
     };
 
-    const randLots = Math.floor(Math.random()*22);
+    const randLots = Math.floor(Math.random()*21);
 
     for(let i = 0; i < randLots+1; i++) {
         const randBool = Math.floor(Math.random()*2)? true: false;
@@ -19,7 +19,26 @@ const generateData = () => {
     return data;
 }
 
+
 module.exports = generateData;
+
+// const dataOld = generateData();
+// const dataUpdate = generateData();
+
+// console.log(dataOld, dataUpdate);
+
+// const upToDate = [...dataOld.parkingLots];
+
+// dataUpdate.parkingLots.forEach((d) => {
+//     const index = dataOld.parkingLots.findIndex(d2 => d2.id === d.id);
+//     if(index !== -1){
+//         upToDate[index] = d;
+//     }
+//     else {
+//         upToDate.push(d);
+//     }
+// })
+// console.log(upToDate);
 
 //   const data = [{
 //     id: 'lot0',
