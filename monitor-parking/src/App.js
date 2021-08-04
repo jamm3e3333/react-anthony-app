@@ -63,7 +63,7 @@ const App = () => {
      }, 5000);
      return () => clearInterval(fetchInt);
    }
-  }, [isError]);
+  }, [fetchData, isError]);
   
   return (
     <Fragment>
