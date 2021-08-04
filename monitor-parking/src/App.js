@@ -57,14 +57,14 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if(!isError) {
-      setInterval(() => {
-        fetchData();
-      }, 5000);
-    }
-    
-  }, [fetchData, isError]);
-
+   if(!isError) {
+     const fetchInt = setInterval(() => {
+       fetchData(); 
+     }, 5000);
+     return () => clearInterval(fetchInt);
+   }
+  }, [isError]);
+  
   return (
     <Fragment>
       {isError && <Modal>Error while fetching data</Modal>}
