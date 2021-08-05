@@ -8,7 +8,7 @@ import ParkingTiming from './components/ParkingInfoComponents/ParkingTiming/Park
 import ParkingMap from './components/ParkingInfoComponents/ParkingMap';
 import Modal from './components/UI/Modal';
 
-const url = 'http://localhost:3010/monitor/data';
+const url = '/api/monitor/data';
 
 const App = () => {
   

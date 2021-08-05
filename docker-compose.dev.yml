@@ -1,0 +1,13 @@
+version: "3"
+
+services: 
+
+    api:
+        volumes:
+            - /app/node_modules
+            - ./express-server:/app
+    
+    client:
+        volumes:
+            - /app/node_modules
+            - ./monitor-parking:/app
