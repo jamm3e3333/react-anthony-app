@@ -33,14 +33,14 @@ app.get('/monitor/data', cors(), (req, res) => {
 })
 
 app.post('/data', (req, res) => {
-        const auth = Buffer.from(req.headers.authorization
-            .split('Basic ')[1], 'base64').toString()
-            .split(':');
+        // const auth = Buffer.from(req.headers.authorization
+        //     .split('Basic ')[1], 'base64').toString()
+        //     .split(':');
 
-        if(auth[0] !== user || auth[1] !== password) {
-            return res.status(401)
-                        .send({msg: 'Unathorized'});
-        }
+        // if(auth[0] !== user || auth[1] !== password) {
+        //     return res.status(401)
+        //                 .send({msg: 'Unathorized'});
+        // }
 
     try{
         const dataUpToDate = req.body;
