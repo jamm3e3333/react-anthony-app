@@ -10,13 +10,13 @@ const ParkingTiming = props => {
         
     }
     else {
-        parkingTimingItem.filter((item) => item.occupated)
-        .sort((a, b ) =>  a.parkingStart - b.parkingStart)
+        parkingTimingItem.filter((item) => item.obsazeno)
+        .sort((a, b ) =>  a.datum - b.datum)
         .slice(0,5)
         .forEach(item => {
             const parkingTimeObject = {};
     
-            const curTime = Math.floor((new Date().getTime() - item.parkingStart)/1000);
+            const curTime = Math.floor((new Date().getTime() - item.datum)/1000);
     
             parkingTimeObject["id"] = item.id;
             parkingTimeObject["hours"] = Math.floor(curTime/3600);

@@ -19,6 +19,7 @@ const App = () => {
 
   const fetchData = useCallback(async () => {
     try{
+
       setIsError(false);
       const response = await fetch(url);
 
@@ -26,33 +27,19 @@ const App = () => {
         throw new Error();
       }
       const data = await response.json();
+      const { parkingLots } = data; //updated data
 
-      const { parkingLots } = data.data; //updated data
 
+      setlastDetectionState(data.lastDetection);
 
-      setlastDetectionState(data.data.lastDetection);
-
-      setParkingInfoState((prevState) => {
-        const upToDateLots = [...prevState]; //old data
-
-        if(!upToDateLots.length) {
-          return parkingLots;
-        }
-        parkingLots.forEach((lot) => {
-          const index = upToDateLots.findIndex(oldLot => oldLot.id === lot.id);
-          if(index !== -1) {
-            upToDateLots[index] = lot;
-          }
-          else{
-            upToDateLots.push(lot);
-          } 
-        })
-        return upToDateLots;
+      setParkingInfoState(() => {
+        return parkingLots;        
       });
       
     }
     catch(e){
       setIsError(true);
+      console.log(e);
     }
   }, []);
 

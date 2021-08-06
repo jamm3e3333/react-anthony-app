@@ -14,7 +14,7 @@ const ParkingCard = props => {
     
     let freeSpace = 0;
     props.items.forEach((item) => {
-        if(!item.occupated) {
+        if(!item.obsazeno) {
             freeSpace++;
         }
     });
@@ -44,9 +44,6 @@ const ParkingCard = props => {
             </CardItem>
             <CardItem>
                 <p>Průměrná obsazenost parkoviště</p>
-                <div>
-                    Graf
-                </div>
                 <div>
                     {!isNaN(avgOccupated) && <p className={classes['card__item--blue']}>{`${avgOccupated}%`}</p>}
                     {isNaN(avgOccupated) && <p className={classes['card__item--blue']}>neuvedeno</p>}

@@ -6,7 +6,10 @@ services:
         volumes:
             - /app/node_modules
             - ./express-server:/app
-    
+        env_file: 
+            - ./express-server/config/dev.env
+        command: npm run dev
+
     client:
         volumes:
             - /app/node_modules

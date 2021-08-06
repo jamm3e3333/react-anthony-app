@@ -4,151 +4,198 @@ import CardItem from '../UI/CardItem';
 import classesCardItem from '../UI/CardItem.module.css';
 
 const coords = {
-  lot0: {
-    id: 'lot0',
+  0: {
     coord: {
       x: 10,
       y: 150
     }
   },
-  lot1: {
-    id: 'lot1',
+  1: {
     coord: {
       x: 30,
       y: 170
     }
   },
-  lot2: {
-    id: 'lot2',
+  2: {
     coord: {
       x: 50,
       y: 190
     }
   },
-  lot3: {
-    id: 'lot3',
+  3: {
     coord: {
       x: 90,
       y: 210
     }
   },
-  lot4: {
-    id: 'lot4',
+  4: {
     coord: {
       x: 120,
       y: 190
     }
   },
-  lot5: {
-    id: 'lot5',
+  5: {
     coord: {
       x: 150,
       y: 170
     }
   },
-  lot6: {
-    id: 'lot6',
+  6: {
     coord: {
       x: 180,
       y: 150
     }
   },
-  lot7: {
-    id: 'lot7',
+  7: {
     coord: {
       x: 210,
       y: 130
     }
   },
-  lot8: {
-    id: 'lot8',
+  8: {
     coord: {
       x: 240,
       y: 110
     }
   },
-  lot9: {
-    id: 'lot9',
+  9: {
     coord: {
       x: 270,
       y: 90
     }
   },
-  lot10: {
-    id: 'lot10',
+  10: {
     coord: {
-      x: 180,
-      y: 260
+      x: 290,
+      y: 70
     }
   },
-  lot11: {
-    id: 'lot11',
+  //right first lane
+  11: {
     coord: {
-      x: 210,
+      x: 310,
+      y: 50
+    }
+  },
+  12: {
+    coord: {
+      x: 200,
       y: 240
     }
   },
-  lot12: {
-    id: 'lot12',
+  13: {
+    coord: {
+      x: 220,
+      y: 225
+    }
+  },
+  14: {
     coord: {
       x: 240,
-      y: 220
-    }
-  },
-  lot13: {
-    id: 'lot13',
-    coord: {
-      x: 270,
-      y: 200
-    }
-  },
-  lot14: {
-    id: 'lot14',
-    coord: {
-      x: 300,
-      y: 180
-    }
-  },
-  lot15: {
-    id: 'lot15',
-    coord: {
-      x: 330,
-      y: 160
-    }
-  },
-  lot16: {
-    id: 'lot16',
-    coord: {
-      x: 240,
-      y: 270
-    }
-  },
-  lot17: {
-    id: 'lot17',
-    coord: {
-      x: 270,
-      y: 250
-    }
-  },
-  lot18: {
-    id: 'lot18',
-    coord: {
-      x: 300,
-      y: 230
-    }
-  },
-  lot19: {
-    id: 'lot19',
-    coord: {
-      x: 330,
       y: 210
     }
   },
-  lot20: {
-    id: 'lot20',
+  15: {
+    coord: {
+      x: 260,
+      y: 195
+    }
+  },
+  16: {
+    coord: {
+      x: 280,
+      y: 180
+    }
+  },
+  17: {
+    coord: {
+      x: 300,
+      y: 165
+    }
+  },
+  18: {
+    coord: {
+      x: 320,
+      y: 150
+    }
+  },
+  19: {
+    coord: {
+      x: 340,
+      y: 135
+    }
+  },
+  20: {
     coord: {
       x: 360,
-      y: 190
+      y: 120
+    }
+  },
+  21: {
+    coord: {
+      x: 380,
+      y: 105
+    }
+  },
+
+
+  22: {
+    coord: {
+      x: 220,
+      y: 260
+    }
+  },
+  23: {
+    coord: {
+      x: 240,
+      y: 245
+    }
+  },
+  24: {
+    coord: {
+      x: 260,
+      y: 230
+    }
+  },
+  25: {
+    coord: {
+      x: 280,
+      y: 215
+    }
+  },
+  26: {
+    coord: {
+      x: 300,
+      y: 200
+    }
+  },27: {
+    coord: {
+      x: 320,
+      y: 185
+    }
+  },
+  28: {
+    coord: {
+      x: 340,
+      y: 170
+    }
+  },
+  29: {
+    coord: {
+      x: 360,
+      y: 155
+    }
+  },
+  30: {
+    coord: {
+      x: 380,
+      y: 140
+    }
+  },
+  31: {
+    coord: {
+      x: 400,
+      y: 125
     }
   }
 };
@@ -156,14 +203,13 @@ const coords = {
 const ParkingMap = props => {
 
     const items = !props.items.length ? undefined: props.items.map(item => {
-    
       return (
         <Circle 
           key={item.id} 
           x={coords[item.id].coord.x} 
           y={coords[item.id].coord.y} 
-          radius={8} 
-          fill={item.occupated ? "rgb(252, 3, 3)" : "rgb(3, 252, 32)"} 
+          radius={5.5} 
+          fill={item.obsazeno ? "rgb(252, 3, 3)": "rgb(3, 252, 32)"} 
         />
       )
     });
