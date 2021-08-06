@@ -1,25 +1,77 @@
-const generateData = () => {
-
-    const data = {
-        lastDetection: new Date(),
-        parkingLots: []
-    };
-
-    const randLots = Math.floor(Math.random()*22);
-
-    for(let i = 0; i < randLots+1; i++) {
-        const randBool = Math.floor(Math.random()*2)? true: false;
-
-        data.parkingLots.push({
-            id: `lot${i}`,
-            occupated: randBool,
-            parkingStart: randBool?new Date().getTime() - Math.floor(Math.random()*123453): 0
-        })
+const generateData = (parkingOld, parkingActual) => {
+    const data = [];
+    if(!parkingActual.length && !parkingOld.length) {
+        return [];
     }
-    return data;
+    else if(!parkingActual.length){
+        return parkingOld
+    }
+
+
+    const upToDateLots = [...parkingOld]; //old data
+
+    parkingActual.forEach((lot) => {
+        const index = upToDateLots.findIndex(oldLot => oldLot.id === lot.id);
+        if(index !== -1) {
+            const datum = new Date(lot.datum).getTime();
+            upToDateLots[index] = lot;
+            
+            if(datum) {
+                upToDateLots[index].datum = datum;
+            }
+        }
+        else{
+            const datum = new Date(lot.datum).getTime();
+            lot.datum = datum;
+            upToDateLots.push(lot);
+        } 
+    });
+    return upToDateLots;
 }
 
+
 module.exports = generateData;
+
+// const generateData = () => {
+
+    //     const data = {
+    //         lastDetection: new Date(),
+    //         parkingLots: []
+    //     };
+    
+    //     const randLots = Math.floor(Math.random()*32);
+    
+    //     for(let i = 0; i < randLots+1; i++) {
+    //         const randBool = Math.floor(Math.random()*2)? true: false;
+    
+    //         data.parkingLots.push({
+    //             id: `lot${i}`,
+    //             occupated: randBool,
+    //             parkingStart: randBool?new Date().getTime() - Math.floor(Math.random()*123453): 0
+    //         })
+    //     }
+    //     console.log(data);
+    //     return data;
+    // }
+
+
+// const dataOld = generateData();
+// const dataUpdate = generateData();
+
+// console.log(dataOld, dataUpdate);
+
+// const upToDate = [...dataOld.parkingLots];
+
+// dataUpdate.parkingLots.forEach((d) => {
+//     const index = dataOld.parkingLots.findIndex(d2 => d2.id === d.id);
+//     if(index !== -1){
+//         upToDate[index] = d;
+//     }
+//     else {
+//         upToDate.push(d);
+//     }
+// })
+// console.log(upToDate);
 
 //   const data = [{
 //     id: 'lot0',

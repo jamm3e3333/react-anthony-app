@@ -7,22 +7,27 @@ import CardItem from '../UI/CardItem';
 import ParkingInfoParagraph from './ParkingInfo/ParkingInfoParagraph';
 
 const ParkingCard = props => {
+    
+    const lastDetection = props.lastDetection !== null 
+    ? `${new Date(props.lastDetection).toLocaleDateString()} ${new Date(props.lastDetection).toLocaleTimeString()}` 
+    : "není uvedeno";
+    
     let freeSpace = 0;
-    props.items.parkingLots.forEach((item) => {
-        if(!item.occupated) {
+    props.items.forEach((item) => {
+        if(!item.obsazeno) {
             freeSpace++;
         }
     });
-    const occupatedSpace = props.items.parkingLots.length - freeSpace;
+    const occupatedSpace = props.items.length - freeSpace;
 
-    const avgOccupated = ((occupatedSpace/props.items.parkingLots.length) *100).toFixed(1);
+    const avgOccupated = ((occupatedSpace/props.items.length) *100).toFixed(1);
 
     return ( 
         <Fragment>
             <CardItem>
                 <ParkingInfoParagraph className={classesPara['parking__info--grey']} 
                     title="Poslední detekce"
-                    data={`${props.items.lastDetection.toLocaleDateString()} ${props.items.lastDetection.toLocaleTimeString()}`}
+                    data={lastDetection}
                 />
                 <ParkingInfoParagraph className={classesPara['parking__info--grey']}
                     title="Počet volných parkovacích míst"
@@ -34,16 +39,15 @@ const ParkingCard = props => {
                 />
                 <ParkingInfoParagraph className={classesPara['parking__info--grey']}
                     title="Celkový počet parkovacích míst"
-                    data={props.items.parkingLots.length}
+                    data={props.items.length}
                 />
             </CardItem>
             <CardItem>
                 <p>Průměrná obsazenost parkoviště</p>
                 <div>
-                    Graf
-                </div>
-                <div>
-                    <p className={classes['card__item--blue']}>{`${avgOccupated}%`}</p>
+                    {!isNaN(avgOccupated) && <p className={classes['card__item--blue']}>{`${avgOccupated}%`}</p>}
+                    {isNaN(avgOccupated) && <p className={classes['card__item--blue']}>neuvedeno</p>}
+                    
                 </div>
             </CardItem>
         </Fragment>

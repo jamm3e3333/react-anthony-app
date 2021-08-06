@@ -1,0 +1,10 @@
+version: "3"
+
+services: 
+
+    api:
+        environment: 
+            - PORT=${PORT}
+            - USER=${USER}
+            - PASS=${PASS}
+        command: node index.js
