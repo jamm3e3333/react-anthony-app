@@ -25,7 +25,7 @@ const App = () => {
     try{
 
       setIsError(false);
-      const response = await fetch(urlLocal);
+      const response = await fetch(url);
 
       if(response.status !== 200) {
         throw new Error();
