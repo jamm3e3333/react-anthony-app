@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback, Fragment } from 'react';
 
 import classes from './App.module.css';
 
+import logo from './assets/logo/logo-option-2.png';
+import qrCode from './assets/logo/qr-code_4.png';
+
 import Card from './components/UI/Card';
 import ParkingCard from './components/ParkingInfoComponents/ParkingCard'
 import ParkingTiming from './components/ParkingInfoComponents/ParkingTiming/ParkingTiming';
@@ -28,7 +31,7 @@ const App = () => {
       }
       const data = await response.json();
       const { parkingLots } = data; //updated data
-
+      console.log(parkingLots)
 
       setlastDetectionState(data.lastDetection);
 
@@ -55,6 +58,10 @@ const App = () => {
   return (
     <Fragment>
       {isError && <Modal>Error while fetching data</Modal>}
+      <header className={classes.header}>
+        <img className={classes["header__logo"]} src={logo} height={400} alt={logo} />
+        <img className={classes["header__qr"]} src={qrCode} alt="qr-code" />
+      </header>
       <div className={classes['header__main']}>
         
         <Card>

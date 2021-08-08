@@ -8,6 +8,29 @@
     display: none;
 }
 
+.header {
+    position:relative;
+    height: 95vh;
+    background: rgba(46, 46, 46, 0.7);
+    margin-bottom: 2rem;
+}
+
+.header__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header__qr {
+    position: absolute;
+    width: 8%;
+    top:50%;
+    left:90%;
+    transform: translate(0, -60%);
+}
+
+
 @media (max-width: 1100px) {
     .header__main {
         width: 100%;
