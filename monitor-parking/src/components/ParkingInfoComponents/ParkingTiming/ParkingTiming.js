@@ -12,22 +12,18 @@ const ParkingTiming = props => {
     }
     else {
         parkingTimingItem.filter((item) => item.obsazeno)
-        .sort((a, b ) =>  a.datum - b.datum)
+        .sort((a, b ) => b.datum - a.datum)
         .slice(0,5)
         .forEach(item => {
             const parkingTimeObject = {};
-            const datumNow = Math.floor(new Date(new Date().toLocaleString('en-US', {timeZone: "Europe/Prague"})).getTime()/1000);
-            const curTime = datumNow - item.datum;
             
             parkingTimeObject["id"] = item.id;
-            parkingTimeObject["hours"] = Math.floor(curTime/3600);
-            parkingTimeObject["minutes"] = Math.floor(curTime/60)%60;
-            parkingTimeObject["seconds"] = curTime%60;
+            parkingTimeObject["hours"] = Math.floor(item.datum/3600);
+            parkingTimeObject["minutes"] = Math.floor(item.datum/60)%60 < 10 ? '0'+Math.floor(item.datum/60)%60: Math.floor(item.datum/60)%60;
+            parkingTimeObject["seconds"] = item.datum%60 < 10 ? '0' + item.datum%60 : item.datum%60;
             parkingTime.push(parkingTimeObject);
         })
     }
-    
-
     return (
         <CardItem>
             <p className={classesPara['card__item--green']}>5 nejdéle obsazených parkovacích míst</p>
