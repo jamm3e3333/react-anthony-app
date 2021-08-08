@@ -13,16 +13,16 @@ const generateData = (parkingOld, parkingActual) => {
     parkingActual.forEach((lot) => {
         const index = upToDateLots.findIndex(oldLot => oldLot.id === lot.id);
         if(index !== -1) {
-            const datum = new Date(lot.datum).getTime();
+            // const datum = new Date(lot.datum).getTime();
             upToDateLots[index] = lot;
             
-            if(datum) {
-                upToDateLots[index].datum = datum;
-            }
+            // if(datum) {
+            //     upToDateLots[index].datum = datum;
+            // }
         }
         else{
-            const datum = new Date(lot.datum).getTime();
-            lot.datum = datum;
+            // const datum = new Date(lot.datum).getTime();
+            // lot.datum = datum;
             upToDateLots.push(lot);
         } 
     });

@@ -221,6 +221,7 @@ const ParkingMap = props => {
                 {items}
             </Layer>  
           </Stage>  }
+          <div className={classesCardItem['card__item--span']}>mapy: Google Maps</div>
         </CardItem>
     )
 }

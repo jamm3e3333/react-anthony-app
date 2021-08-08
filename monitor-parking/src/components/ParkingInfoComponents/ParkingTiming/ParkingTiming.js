@@ -12,17 +12,23 @@ const ParkingTiming = props => {
     }
     else {
         parkingTimingItem.filter((item) => item.obsazeno)
+        .forEach(item => {
+            const datum = new Date(item.datum).getTime();
+            item.datum =datum;
+        })
+
+        parkingTimingItem
         .sort((a, b ) =>  a.datum - b.datum)
         .slice(0,5)
         .forEach(item => {
             const parkingTimeObject = {};
     
             const curTime = Math.floor(( new Date(new Date().toLocaleString('en-US', {timeZone: "Europe/Prague"})).getTime() - item.datum)/1000);
-    
+            
             parkingTimeObject["id"] = item.id;
             parkingTimeObject["hours"] = Math.floor(curTime/3600);
-            parkingTimeObject["minutes"] = Math.floor(curTime/60)%60 < 10 ? '0' + Math.floor(curTime/60)%60 : Math.floor(curTime/60)%60;
-            parkingTimeObject["seconds"] = curTime%60 < 10 ? '0' + curTime%60 : curTime%60;
+            parkingTimeObject["minutes"] = Math.floor(curTime/60)%60;
+            parkingTimeObject["seconds"] = curTime%60;
             parkingTime.push(parkingTimeObject);
         })
     }

@@ -11,7 +11,7 @@ import ParkingTiming from './components/ParkingInfoComponents/ParkingTiming/Park
 import ParkingMap from './components/ParkingInfoComponents/ParkingMap';
 import Modal from './components/UI/Modal';
 
-const url = '/api/monitor/data';
+const url = 'http://localhost:3010/monitor/data';
 
 const App = () => {
   
@@ -31,7 +31,7 @@ const App = () => {
       }
       const data = await response.json();
       const { parkingLots } = data; //updated data
-      console.log(parkingLots)
+      // console.log(parkingLots)
 
       setlastDetectionState(data.lastDetection);
 

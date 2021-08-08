@@ -30,6 +30,13 @@
     text-transform: uppercase;
 }
 
+.card__item--span {
+    position: relative;
+    bottom: 2rem;
+    left: 0;
+    color: black;
+}
+
 @media (max-width: 600px) {
     .card__item {
         width: 50rem;
