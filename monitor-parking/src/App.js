@@ -57,9 +57,9 @@ const App = () => {
   
   return (
     <Fragment>
-      {isError && <Modal>Error while fetching data</Modal>}
+      {isError && <Modal>oops! Error while fetching data</Modal>}
       <header className={classes.header}>
-        <img className={classes["header__logo"]} src={logo} height={400} alt={logo} />
+        <img className={classes["header__logo"]} src={logo} height={210} alt={logo} />
         <img className={classes["header__qr"]} src={qrCode} alt="qr-code" />
       </header>
       <div className={classes['header__main']}>

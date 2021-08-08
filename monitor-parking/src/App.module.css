@@ -13,21 +13,22 @@
     height: 95vh;
     background: rgba(46, 46, 46, 0.7);
     margin-bottom: 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 60vh, 0 80vh)
 }
 
 .header__logo {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0)
 }
 
 .header__qr {
     position: absolute;
     width: 8%;
     top:50%;
-    left:90%;
-    transform: translate(0, -60%);
+    left:50%;
+    transform: translate(-50%, -40%);
 }
 
 

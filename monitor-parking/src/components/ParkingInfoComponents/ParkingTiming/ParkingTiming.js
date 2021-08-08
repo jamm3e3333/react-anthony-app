@@ -1,4 +1,5 @@
 import classes from '../ParkingInfo/ParkingInfoParagraph.module.css';
+import classesPara from '../../UI/CardItem.module.css';
 
 import ParkingInfoParagraph from '../ParkingInfo/ParkingInfoParagraph'
 import CardItem from '../../UI/CardItem';
@@ -16,12 +17,12 @@ const ParkingTiming = props => {
         .forEach(item => {
             const parkingTimeObject = {};
     
-            const curTime = Math.floor((new Date().getTime() - item.datum)/1000);
+            const curTime = Math.floor(( new Date(new Date().toLocaleString('en-US', {timeZone: "Europe/Prague"})).getTime() - item.datum)/1000);
     
             parkingTimeObject["id"] = item.id;
             parkingTimeObject["hours"] = Math.floor(curTime/3600);
-            parkingTimeObject["minutes"] = Math.floor((curTime%3600)/60) < 10 ? '0' + Math.floor((curTime%3600)/60) : Math.floor((curTime%3600)/60);
-            parkingTimeObject["seconds"] = Math.floor(curTime%60) < 10 ? '0' + Math.floor(curTime%60) : Math.floor(curTime%60);
+            parkingTimeObject["minutes"] = Math.floor(curTime/60)%60 < 10 ? '0' + Math.floor(curTime/60)%60 : Math.floor(curTime/60)%60;
+            parkingTimeObject["seconds"] = curTime%60 < 10 ? '0' + curTime%60 : curTime%60;
             parkingTime.push(parkingTimeObject);
         })
     }
@@ -29,7 +30,7 @@ const ParkingTiming = props => {
 
     return (
         <CardItem>
-            <p>5 nejdéle obsazených parkovacích míst</p>
+            <p className={classesPara['card__item--green']}>5 nejdéle obsazených parkovacích míst</p>
             {parkingTime.length > 0 && parkingTime.map((item) => {
                 return (
                     <ParkingInfoParagraph 

@@ -1,14 +1,14 @@
 html {
   font-size: 62.5%;
-  background: rgba(50, 54, 58, 0.7);
+  background: rgba(50, 54, 58, 0.85);
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 1.7;
-  color: rgb(0, 0, 0);
-  padding: 0.5rem;
+  color: rgb(255, 255, 255);
+  padding: 0.3rem;
   box-sizing: border-box;
 }

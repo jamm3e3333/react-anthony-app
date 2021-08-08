@@ -43,7 +43,7 @@ const ParkingCard = props => {
                 />
             </CardItem>
             <CardItem>
-                <p>Procentuální obsazenost parkoviště</p>
+                <p className={classes['card__item--green']}>Procentuální obsazenost parkoviště</p>
                 <div>
                     {!isNaN(avgOccupated) && <p className={classes['card__item--blue']}>{`${avgOccupated}%`}</p>}
                     {isNaN(avgOccupated) && <p className={classes['card__item--blue']}>neuvedeno</p>}

@@ -6,7 +6,8 @@
 }
 
 .card__item .card__item--blue {
-    color: rgb(0, 145, 255);
+    color: rgb(0, 108, 190);
+    font-weight: 600;
     background: rgba(138, 227, 255, 0.8);
     border-radius: 10rem;
     text-align: center;
@@ -20,6 +21,13 @@
     background-image: url('../../assets/map__view.jpg');
     background-size: cover;
     background-position: center;
+}
+
+.card__item--green {
+    color: rgb(127, 216, 88);
+    font-weight: 800;
+    font-size: 2rem;
+    text-transform: uppercase;
 }
 
 @media (max-width: 600px) {

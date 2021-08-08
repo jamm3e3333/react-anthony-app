@@ -5,9 +5,12 @@
     transform: translateX(-50%);
     padding: 2rem;
     width: 100%;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     margin-top: 0;
     text-align: center;
-    background: rgba(255, 223, 43, 0.644);
-    color: rgba(255, 0, 0, 0.918);
+
+    color: rgb(127, 216, 88);
+    font-weight: 800;
+    font-size: 2rem;
+    text-transform: uppercase;
   }
