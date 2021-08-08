@@ -35,7 +35,13 @@
     bottom: 2rem;
     left: 0;
     color: black;
+    font-weight: 900;
 }
+
+.card__item--map {
+    border-radius: 1rem;
+}
+
 
 @media (max-width: 600px) {
     .card__item {

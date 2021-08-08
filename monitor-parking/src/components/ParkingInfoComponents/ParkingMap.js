@@ -215,7 +215,7 @@ const ParkingMap = props => {
     });
 
     return (
-        <CardItem className={classesCardItem['card__item--map']}>
+        <CardItem className={`${classesCardItem['card__item--map']} ${classesCardItem['card__item--map']}`}>
           {items && <Stage width={640} height={400} >
             <Layer>
                 {items}
