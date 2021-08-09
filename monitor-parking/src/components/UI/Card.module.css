@@ -1,13 +1,15 @@
 .card {
-    flex: 2;
-    width: 50%;
+    position: relative;
+    width: 65%;
 }
 
+/*
 @media (max-width: 1100px) {
     .card {
         display: block;
         margin: auto;
         margin-top: 3rem;
+
         margin-bottom: 3rem;
     }
-}
+}*/

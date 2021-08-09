@@ -12,7 +12,7 @@ import ParkingMap from './components/ParkingInfoComponents/ParkingMap';
 import Modal from './components/UI/Modal';
 
 const url = '/api/monitor/data';
-// const urlLocal = 'http://localhost:3010/monitor/data';
+const urlLocal = 'http://localhost:3010/monitor/data';
 
 const App = () => {
   
@@ -25,7 +25,7 @@ const App = () => {
     try{
 
       setIsError(false);
-      const response = await fetch(url);
+      const response = await fetch(urlLocal);
 
       if(response.status !== 200) {
         throw new Error();
