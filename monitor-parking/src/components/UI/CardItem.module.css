@@ -26,7 +26,7 @@
 .card__item--map {
     width: 50rem;
     height: 40rem;
-    background-image: url('../../assets/map__view.jpg');
+    background-image: url('../../assets/map__view_title.jpg');
     background-size: cover;
     background-position: center;
     display: block;
