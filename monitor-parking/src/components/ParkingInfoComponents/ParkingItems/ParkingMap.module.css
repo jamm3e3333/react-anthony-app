@@ -2,8 +2,14 @@
     background-image: url('../../../assets/map__view_title.jpg');
     background-size: cover;
     background-position: center;
-    width: 65rem;
-    height: 45rem;
+    width: 60%;
     margin-bottom: 4rem;
     border-radius: 1rem;
+}
+
+@media (max-width: 600px) {
+    .card__item--map {
+        width: 100%;
+        height: auto;
+    }
 }
