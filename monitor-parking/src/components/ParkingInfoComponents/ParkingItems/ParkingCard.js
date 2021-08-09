@@ -1,10 +1,9 @@
 import { Fragment } from 'react';
 
-import classes from '../UI/CardItem.module.css';
-import classesPara from './ParkingInfo/ParkingInfoParagraph.module.css';
+import classes from './ParkingCard.module.css';
 
-import CardItem from '../UI/CardItem';
-import ParkingInfoParagraph from './ParkingInfo/ParkingInfoParagraph';
+import CardItem from '../../UI/CardItem';
+import ParkingInfoParagraph from '../../UI/ParkingInfoParagraph';
 
 const ParkingCard = props => {
     
@@ -25,19 +24,19 @@ const ParkingCard = props => {
     return ( 
         <Fragment>
             <CardItem>
-                <ParkingInfoParagraph className={classesPara['parking__info--grey']} 
+                <ParkingInfoParagraph className={classes['parking__info--grey']} 
                     title="Poslední detekce"
                     data={lastDetection}
                 />
-                <ParkingInfoParagraph className={classesPara['parking__info--grey']}
+                <ParkingInfoParagraph className={classes['parking__info--grey']}
                     title="Počet volných parkovacích míst"
                     data={freeSpace}
                 />
-                <ParkingInfoParagraph className={classesPara['parking__info--grey']}
+                <ParkingInfoParagraph className={classes['parking__info--grey']}
                     title="Počet obsazených parkovacích míst"
                     data={occupatedSpace}
                 />
-                <ParkingInfoParagraph className={classesPara['parking__info--grey']}
+                <ParkingInfoParagraph className={classes['parking__info--grey']}
                     title="Celkový počet parkovacích míst"
                     data={props.items.length}
                 />

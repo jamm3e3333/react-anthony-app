@@ -1,0 +1,8 @@
+.card__item--map {
+    background-image: url('../../../assets/map__view_title.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 64rem;
+    margin-bottom: 4rem;
+    border-radius: 1rem;
+}

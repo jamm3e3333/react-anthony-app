@@ -1,0 +1,10 @@
+.card__item--green {
+    color: rgb(127, 216, 88);
+    font-weight: 800;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.parking__info--red {
+    border-bottom: 0.4rem solid rgb(243, 44, 44);
+}

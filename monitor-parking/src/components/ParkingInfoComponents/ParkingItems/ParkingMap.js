@@ -1,139 +1,142 @@
 import { Stage, Layer, Circle } from 'react-konva';
 
-import CardItem from '../UI/CardItem';
-import classesCardItem from '../UI/CardItem.module.css';
+import CardItem from '../../UI/CardItem';
+
+import classes from './ParkingMap.module.css';
 
 const coords = {
   0: {
     coord: {
-      x: 10,
+      x: 60,
       y: 150
     }
   },
   1: {
     coord: {
-      x: 30,
+      x: 80,
       y: 170
     }
   },
   2: {
     coord: {
-      x: 50,
+      x: 100,
       y: 190
     }
   },
+
+
   3: {
     coord: {
-      x: 90,
+      x: 140,
       y: 210
     }
   },
   4: {
     coord: {
-      x: 120,
+      x: 170,
       y: 190
     }
   },
   5: {
     coord: {
-      x: 150,
+      x: 200,
       y: 170
     }
   },
   6: {
     coord: {
-      x: 180,
+      x: 230,
       y: 150
     }
   },
   7: {
     coord: {
-      x: 210,
+      x: 260,
       y: 130
     }
   },
   8: {
     coord: {
-      x: 240,
+      x: 290,
       y: 110
     }
   },
   9: {
     coord: {
-      x: 270,
+      x: 320,
       y: 90
     }
   },
   10: {
     coord: {
-      x: 290,
+      x: 340,
       y: 70
     }
   },
-  //right first lane
   11: {
     coord: {
-      x: 310,
+      x: 360,
       y: 50
     }
   },
+
   12: {
     coord: {
-      x: 200,
+      x: 260,
       y: 240
     }
   },
   13: {
     coord: {
-      x: 220,
+      x: 280,
       y: 225
     }
   },
   14: {
     coord: {
-      x: 240,
+      x: 300,
       y: 210
     }
   },
   15: {
     coord: {
-      x: 260,
+      x: 320,
       y: 195
     }
   },
   16: {
     coord: {
-      x: 280,
+      x: 340,
       y: 180
     }
   },
   17: {
     coord: {
-      x: 300,
+      x: 360,
       y: 165
     }
   },
   18: {
     coord: {
-      x: 320,
+      x: 380,
       y: 150
     }
   },
   19: {
     coord: {
-      x: 340,
+      x: 400,
       y: 135
     }
   },
   20: {
     coord: {
-      x: 360,
+      x: 420,
       y: 120
     }
   },
   21: {
     coord: {
-      x: 380,
+      x: 440,
       y: 105
     }
   },
@@ -141,60 +144,60 @@ const coords = {
 
   22: {
     coord: {
-      x: 220,
+      x: 280,
       y: 260
     }
   },
   23: {
     coord: {
-      x: 240,
+      x: 300,
       y: 245
     }
   },
   24: {
     coord: {
-      x: 260,
+      x: 320,
       y: 230
     }
   },
   25: {
     coord: {
-      x: 280,
+      x: 340,
       y: 215
     }
   },
   26: {
     coord: {
-      x: 300,
+      x: 360,
       y: 200
     }
   },27: {
     coord: {
-      x: 320,
+      x: 380,
       y: 185
     }
   },
   28: {
     coord: {
-      x: 340,
+      x: 400,
       y: 170
     }
   },
   29: {
     coord: {
-      x: 360,
+      x: 420,
       y: 155
     }
   },
   30: {
     coord: {
-      x: 380,
+      x: 440,
       y: 140
     }
   },
   31: {
     coord: {
-      x: 400,
+      x: 460,
       y: 125
     }
   }
@@ -215,7 +218,7 @@ const ParkingMap = props => {
     });
 
     return (
-        <CardItem className={classesCardItem['card__item--map']}>
+        <CardItem className={classes['card__item--map']}>
           {items && <Stage width={640} height={400} >
             <Layer>
                 {items}

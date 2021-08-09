@@ -1,65 +1,11 @@
 .card__item {
     padding: 2rem;
-    margin: 5rem 1rem;
     box-shadow: 0 2rem 2rem rgba(0,0,0,0.25);
     border-radius: 1rem;
     animation: moveUp 1s ease-out;
-    text-align: center;
-}
-
-.card__item .card__item--blue {
-    color: rgb(0, 108, 190);
-    font-weight: 600;
-    background: rgba(138, 227, 255, 0.8);
-    border-radius: 10rem;
-    text-align: center;
-    width: 30%;
-}
-
-.card__item--percentage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.card__item--map {
-    width: 50rem;
-    height: 40rem;
-    background-image: url('../../assets/map__view_title.jpg');
-    background-size: cover;
-    background-position: center;
-    display: block;
-    margin: auto;
-    margin-bottom: 4rem;
-}
-
-.card__item--green {
-    color: rgb(127, 216, 88);
-    font-weight: 800;
-    font-size: 2rem;
-    text-transform: uppercase;
-}
-
-.card__item--span {
-    position: absolute;
-    bottom: 10%;
-    left: 25%;
-    transform: translate(-25%, -10%);
-    color: black;
-    font-weight: 900;
-}
-
-.card__item--map {
-    border-radius: 1rem;
-}
-
-
-@media (max-width: 600px) {
-    .card__item {
-        width: 50rem;
-        height: 40rem;
-    }
+    margin: 6rem auto;
+    width: 70rem;
+    max-width: 95%;
 }
 
 @keyframes moveUp {

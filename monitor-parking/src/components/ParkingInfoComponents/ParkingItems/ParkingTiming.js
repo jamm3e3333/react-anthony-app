@@ -1,8 +1,7 @@
-import classes from '../ParkingInfo/ParkingInfoParagraph.module.css';
-import classesPara from '../../UI/CardItem.module.css';
-
-import ParkingInfoParagraph from '../ParkingInfo/ParkingInfoParagraph'
+import ParkingInfoParagraph from '../../UI/ParkingInfoParagraph'
 import CardItem from '../../UI/CardItem';
+
+import classes from './ParkingTiming.module.css';
 
 const ParkingTiming = props => {
     const parkingTime = [];
@@ -26,7 +25,7 @@ const ParkingTiming = props => {
     }
     return (
         <CardItem>
-            <p className={classesPara['card__item--green']}>5 nejdéle obsazených parkovacích míst</p>
+            <p className={classes['card__item--green']}>5 nejdéle obsazených parkovacích míst</p>
             {parkingTime.length > 0 && parkingTime.map((item) => {
                 return (
                     <ParkingInfoParagraph 
