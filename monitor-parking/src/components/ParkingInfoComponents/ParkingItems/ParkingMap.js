@@ -1,5 +1,4 @@
 import { Stage, Layer, Circle } from 'react-konva';
-
 import CardItem from '../../UI/CardItem';
 
 import classes from './ParkingMap.module.css';
@@ -204,6 +203,7 @@ const coords = {
 };
 
 const ParkingMap = props => {
+  
 
     const items = !props.items.length ? undefined: props.items.map(item => {
       return (
