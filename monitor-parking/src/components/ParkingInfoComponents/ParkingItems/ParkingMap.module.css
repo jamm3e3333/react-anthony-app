@@ -3,7 +3,11 @@
     background-size: cover;
     background-position: center;
     width: 65rem;
-    height: 45rem;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 4rem;
     border-radius: 1rem;
 }
