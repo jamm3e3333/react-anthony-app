@@ -3,6 +3,7 @@
     font-weight: 800;
     font-size: 2rem;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .card__item--percentage {
