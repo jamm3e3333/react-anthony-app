@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useCallback, useMemo } from 'react';
-import canvasBg from '../../../assets/map__view_title.jpg'
+import React, { useRef, useEffect } from 'react';
 import classes from './ParkingMap.module.css';
 
 const coords = {
@@ -202,46 +201,37 @@ const coords = {
   }
 };
 
+const draw = (ctx,x,y,color) => {
+  ctx.fillStyle = color ? "rgb(252, 3, 3)" : "rgb(3, 252, 32)";
+  ctx.beginPath()
+  ctx.arc(x, y, 6, 0, 2*Math.PI)
+  ctx.fill()
+};
+
 const ParkingMap = props => {
-  
-    const img = useMemo(() => new Image(), []);
-    
-    img.src = canvasBg;
-
     const canvasRef = useRef();
-
-    const draw = useCallback((ctx,x,y,color) => {
-        ctx.fillStyle = color ? "rgb(252, 3, 3)" : "rgb(3, 252, 32)";
-        ctx.beginPath()
-        ctx.arc(x, y, 6, 0, 2*Math.PI)
-        ctx.fill()
-      }, []);
-
-
+    
     useEffect(() => {
-        const canvas = canvasRef.current;
+      const canvas = canvasRef.current;
         
-        canvas.width = 640;
-        canvas.height = 400;
-        const ctx = canvas.getContext('2d');
-        img.onload = () => {
-            ctx.drawImage(img, 0 , 0); 
+      canvas.width = 640;
+      canvas.height = 400;
+      const ctx = canvas.getContext('2d');
 
-            if(props.items.length > 0){
-              props.items.map(item => {
-                return draw(ctx, coords[item.id].coord.x, coords[item.id].coord.y, item.obsazeno);
-              })
-            }
-        }
+      if(props.items.length > 0){
+        props.items.map(item => {
+          return draw(ctx, coords[item.id].coord.x, coords[item.id].coord.y, item.obsazeno);
+        });
+      }
 
-    }, [draw, img, props.items]);
-
-
+    }, [props.items])
 
     return (
+      <div className={classes['canvas__holder']}>
         <div className={classes['canvas__container']}>
-            <canvas className={classes['canvas--rect']} ref={canvasRef} {...props} />
+            <canvas className={classes['canvas--rect']} ref={canvasRef} />
         </div>
+      </div>
     )
 }
 

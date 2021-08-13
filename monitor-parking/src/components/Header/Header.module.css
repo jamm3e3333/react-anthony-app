@@ -26,10 +26,18 @@
     transform: translate(-50%, -50%);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .header {
         clip-path: none;
         background: inherit;
+    }
+    .header__logo {
+        width: 100%;
+        height: auto;
+    }
+    .header__qr {
+        margin: 1rem 0 1rem 0;
+        width: 40%;
     }
 }
 

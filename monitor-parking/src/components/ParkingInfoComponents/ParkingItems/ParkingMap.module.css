@@ -1,19 +1,42 @@
+.canvas__holder {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+    animation: moveUp 1s ease-out;
+    margin: 2rem auto;
+}
+
 .canvas__container {
     display: flex;
     flex-direction: center;
     align-items: center;
     justify-content: center;
-}
-
-.canvas--rect {
-    margin: 2rem auto;
     width: 60%;
+    background-image: url('../../../assets/map__view_title.jpg');
+    background-size: cover;
     box-shadow: 0 2rem 2rem rgba(0,0,0, 0.25); 
     border-radius: 1rem;
 }
 
+.canvas--rect {
+    margin: 0 auto;
+    width: 100%;
+}
+
 @media (max-width: 600px) {
-    .canvas--rect {
+    .canvas__container {
         width: 100%;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

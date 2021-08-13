@@ -46,7 +46,6 @@ const ParkingCard = props => {
                 <div className={classes['card__item--percentage']}>
                     {!isNaN(avgOccupated) && <p className={classes['card__item--blue']}>{`${avgOccupated}%`}</p>}
                     {isNaN(avgOccupated) && <p className={classes['card__item--blue']}>neuvedeno</p>}
-                    
                 </div>
             </CardItem>
         </Fragment>
