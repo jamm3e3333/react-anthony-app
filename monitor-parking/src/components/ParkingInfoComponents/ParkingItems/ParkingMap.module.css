@@ -1,13 +1,42 @@
-.card__item--map {
-    background-image: url('../../../assets/map__view_title.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 65rem;
-    height: 50rem;
+.canvas__holder {
     display: flex;
-    flex-direction: column;
+    flex-direction: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 4rem;
+    animation: moveUp 1s ease-out;
+    margin: 2rem auto;
+}
+
+.canvas__container {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    background-image: url('../../../assets/map__view_title.jpg');
+    background-size: cover;
+    box-shadow: 0 2rem 2rem rgba(0,0,0, 0.25); 
     border-radius: 1rem;
+}
+
+.canvas--rect {
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .canvas__container {
+        width: 100%;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

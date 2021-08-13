@@ -25,3 +25,9 @@
 .parking__info--grey {
     border-top: 0.2rem solid #888;
 }
+
+@media (max-width: 600px) {
+    .card__item--blue {
+        width: 40%;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import Header from './components/Header/Header';
 import ParkingInfoCard from './components/ParkingInfoComponents/ParkingInfoCard';
@@ -13,11 +13,11 @@ const App = () => {
   }
   
   return (
-    <div>
+    <Fragment>
       {isError && <Modal>oops! Error while fetching data</Modal>}
       <Header />
       <ParkingInfoCard passError={errorHandler}/>
-    </div>
+    </Fragment>
   );
 }
 
