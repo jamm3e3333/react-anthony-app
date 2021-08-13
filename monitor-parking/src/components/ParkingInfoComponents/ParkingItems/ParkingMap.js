@@ -1,231 +1,247 @@
-import { Stage, Layer, Circle } from 'react-konva';
-import CardItem from '../../UI/CardItem';
-
+import React, { useRef, useEffect, useCallback, useMemo } from 'react';
+import canvasBg from '../../../assets/map__view_title.jpg'
 import classes from './ParkingMap.module.css';
 
 const coords = {
+  //first 3 places
   0: {
     coord: {
-      x: 60,
-      y: 150
+      x: 90,
+      y: 140
     }
   },
   1: {
     coord: {
-      x: 80,
-      y: 170
+      x: 110,
+      y: 160
     }
   },
   2: {
     coord: {
-      x: 100,
-      y: 190
+      x: 130,
+      y: 180
     }
   },
 
-
+  //first lane
   3: {
     coord: {
-      x: 140,
-      y: 210
+      x: 170,
+      y: 200
     }
   },
   4: {
     coord: {
-      x: 170,
-      y: 190
+      x: 200,
+      y: 180
     }
   },
   5: {
     coord: {
-      x: 200,
-      y: 170
+      x: 230,
+      y: 160
     }
   },
   6: {
     coord: {
-      x: 230,
-      y: 150
+      x: 260,
+      y: 140
     }
   },
   7: {
     coord: {
-      x: 260,
-      y: 130
+      x: 290,
+      y: 120
     }
   },
   8: {
     coord: {
-      x: 290,
-      y: 110
+      x: 320,
+      y: 100
     }
   },
   9: {
     coord: {
-      x: 320,
-      y: 90
+      x: 350,
+      y: 75
     }
   },
   10: {
     coord: {
-      x: 340,
-      y: 70
+      x: 380,
+      y: 50
     }
   },
   11: {
     coord: {
-      x: 360,
-      y: 50
+      x: 410,
+      y: 25
     }
   },
 
   12: {
     coord: {
-      x: 260,
-      y: 240
+      x: 290,
+      y: 230
     }
   },
   13: {
     coord: {
-      x: 280,
-      y: 225
+      x: 310,
+      y: 215
     }
   },
   14: {
     coord: {
-      x: 300,
-      y: 210
+      x: 330,
+      y: 200
     }
   },
   15: {
     coord: {
-      x: 320,
-      y: 195
+      x: 350,
+      y: 185
     }
   },
   16: {
     coord: {
-      x: 340,
-      y: 180
+      x: 370,
+      y: 170
     }
   },
   17: {
     coord: {
-      x: 360,
-      y: 165
+      x: 390,
+      y: 155
     }
   },
   18: {
     coord: {
-      x: 380,
-      y: 150
+      x: 410,
+      y: 140
     }
   },
   19: {
     coord: {
-      x: 400,
-      y: 135
+      x: 430,
+      y: 125
     }
   },
   20: {
     coord: {
-      x: 420,
-      y: 120
+      x: 450,
+      y: 110
     }
   },
   21: {
     coord: {
-      x: 440,
-      y: 105
+      x: 470,
+      y: 95
     }
   },
 
 
   22: {
     coord: {
-      x: 280,
-      y: 260
+      x: 310,
+      y: 250
     }
   },
   23: {
     coord: {
-      x: 300,
-      y: 245
+      x: 330,
+      y: 235
     }
   },
   24: {
     coord: {
-      x: 320,
-      y: 230
+      x: 350,
+      y: 220
     }
   },
   25: {
     coord: {
-      x: 340,
-      y: 215
+      x: 370,
+      y: 205
     }
   },
   26: {
     coord: {
-      x: 360,
-      y: 200
+      x: 390,
+      y: 190
     }
   },27: {
     coord: {
-      x: 380,
-      y: 185
+      x: 410,
+      y: 175
     }
   },
   28: {
     coord: {
-      x: 400,
-      y: 170
+      x: 430,
+      y: 160
     }
   },
   29: {
     coord: {
-      x: 420,
-      y: 155
+      x: 450,
+      y: 145
     }
   },
   30: {
     coord: {
-      x: 440,
-      y: 140
+      x: 470,
+      y: 130
     }
   },
   31: {
     coord: {
-      x: 460,
-      y: 125
+      x: 490,
+      y: 115
     }
   }
 };
 
 const ParkingMap = props => {
   
+    const img = useMemo(() => new Image(), []);
+    
+    img.src = canvasBg;
 
-    const items = !props.items.length ? undefined: props.items.map(item => {
-      return (
-        <Circle 
-          key={item.id} 
-          x={coords[item.id].coord.x} 
-          y={coords[item.id].coord.y} 
-          radius={5.5} 
-          fill={item.obsazeno ? "rgb(252, 3, 3)": "rgb(3, 252, 32)"} 
-        />
-      )
-    });
+    const canvasRef = useRef();
+
+    const draw = useCallback((ctx,x,y,color) => {
+        ctx.fillStyle = color ? "rgb(252, 3, 3)" : "rgb(3, 252, 32)";
+        ctx.beginPath()
+        ctx.arc(x, y, 6, 0, 2*Math.PI)
+        ctx.fill()
+      }, []);
+
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        
+        canvas.width = 640;
+        canvas.height = 400;
+        const ctx = canvas.getContext('2d');
+        img.onload = () => {
+            ctx.drawImage(img, 0 , 0); 
+
+            if(props.items.length > 0){
+              props.items.map(item => {
+                return draw(ctx, coords[item.id].coord.x, coords[item.id].coord.y, item.obsazeno);
+              })
+            }
+        }
+
+    }, [draw, img, props.items]);
+
+
 
     return (
-        <CardItem className={classes['card__item--map']}>
-          {items && <Stage width={640} height={400} >
-            <Layer>
-                {items}
-            </Layer>  
-          </Stage>  }
-          {/* <div className={classesCardItem['card__item--span']}>mapy: Google Maps</div> */}
-        </CardItem>
+        <div className={classes['canvas__container']}>
+            <canvas className={classes['canvas--rect']} ref={canvasRef} {...props} />
+        </div>
     )
 }
 

@@ -1,13 +1,19 @@
-.card__item--map {
-    background-image: url('../../../assets/map__view_title.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 65rem;
-    height: 50rem;
+.canvas__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 4rem;
+}
+
+.canvas--rect {
+    margin: 2rem auto;
+    width: 60%;
+    box-shadow: 0 2rem 2rem rgba(0,0,0, 0.25); 
     border-radius: 1rem;
+}
+
+@media (max-width: 600px) {
+    .canvas--rect {
+        width: 100%;
+    }
 }
