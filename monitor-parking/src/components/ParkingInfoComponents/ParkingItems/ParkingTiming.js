@@ -6,10 +6,8 @@ import classes from './ParkingTiming.module.css';
 const ParkingTiming = props => {
     const parkingTime = [];
     const parkingTimingItem = [...props.items];
-    if(!parkingTimingItem.length) {
-        
-    }
-    else {
+
+    if(parkingTimingItem.length > 0) {
         parkingTimingItem.filter((item) => item.obsazeno)
         .sort((a, b ) => b.datum - a.datum)
         .slice(0,5)
@@ -23,6 +21,7 @@ const ParkingTiming = props => {
             parkingTime.push(parkingTimeObject);
         })
     }
+    
     return (
         <CardItem>
             <p className={classes['card__item--green']}>5 nejdéle obsazených parkovacích míst</p>
