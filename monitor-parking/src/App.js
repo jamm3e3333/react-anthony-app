@@ -8,9 +8,9 @@ import ParkingInfoCard from './components/ParkingInfoComponents/ParkingInfoCard'
 import Modal from './components/UI/Modal';
 
 const lngs = {
+  cz: { nativeName: 'CZ'},
   en: { nativeName: 'EN'},
   es: { nativeName: 'ES'},
-  cz: { nativeName: 'CZ'}
 }
 
 const App = () => {
