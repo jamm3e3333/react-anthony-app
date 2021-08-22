@@ -19,7 +19,7 @@ i18n
             },
             parkingCard: {
                 notFound: 'not found',
-                lastDet: 'last detection',
+                lastDet: 'Last detection',
                 freeAmount: 'Free parking spaces',
                 occAmount: 'Occupated parking spaces',
                 totalAmount: 'Total parking spaces',
