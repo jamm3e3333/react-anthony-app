@@ -24,7 +24,7 @@ const ParkingTiming = props => {
     
     return (
         <CardItem>
-            <p className={classes['card__item--green']}>5 nejdéle obsazených parkovacích míst</p>
+            <p className={classes['card__item--green']}>{props.t('parkingTiming.five')}</p>
             {parkingTime.length > 0 && parkingTime.map((item) => {
                 return (
                     <ParkingInfoParagraph 

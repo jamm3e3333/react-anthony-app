@@ -29,7 +29,9 @@ const ParkingInfoCard = props => {
             }
             const data = await response.json();
             const { parkingLots } = data; //updated data
-            // console.log(parkingLots)
+            if(!parkingLots.length) {
+                throw new Error('No data present.');
+            }
     
             setlastDetectionState(data.lastDetection);
         
@@ -39,7 +41,6 @@ const ParkingInfoCard = props => {
         }
         catch(e){
             setError(true);
-            console.log(e);
         }
       }, [setError]);
     
@@ -55,8 +56,8 @@ const ParkingInfoCard = props => {
     return (
         <Fragment>
             <ParkingMap items={parkingInfoState} />
-            <ParkingCard items={parkingInfoState} lastDetection={lastDetectionState} />
-            <ParkingTiming items={parkingInfoState} />
+            <ParkingCard t={props.t} items={parkingInfoState} lastDetection={lastDetectionState} />
+            <ParkingTiming t={props.t} items={parkingInfoState} />
         </Fragment>
     )
 }

@@ -1,11 +1,25 @@
 import React, { useState, Fragment } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
+
 import Header from './components/Header/Header';
 import ParkingInfoCard from './components/ParkingInfoComponents/ParkingInfoCard';
 import Modal from './components/UI/Modal';
 
+const lngs = {
+  en: { nativeName: 'EN'},
+  es: { nativeName: 'ES'},
+  cz: { nativeName: 'CZ'}
+}
+
 const App = () => {
-  
+
+  const { t, i18n } = useTranslation();
+  const setLangHandler = lang => {
+    i18n.changeLanguage(lang);
+  }  
+
   const [isError, setIsError ] = useState(false);
 
   const errorHandler = (error) => {
@@ -14,9 +28,9 @@ const App = () => {
   
   return (
     <Fragment>
-      {isError && <Modal>oops! Error while fetching data</Modal>}
-      <Header />
-      <ParkingInfoCard passError={errorHandler}/>
+      {isError && <Modal>{t('error.text')}</Modal>}
+      <Header lngs={lngs} setLang={setLangHandler} />
+      <ParkingInfoCard t={t} passError={errorHandler}/>
     </Fragment>
   );
 }
