@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
@@ -27,11 +27,11 @@ const App = () => {
   }
   
   return (
-    <Fragment>
+    <>
       {isError && <Modal>{t('error.text')}</Modal>}
       <Header lngs={lngs} setLang={setLangHandler} />
       <ParkingInfoCard t={t} passError={errorHandler}/>
-    </Fragment>
+    </>
   );
 }
 

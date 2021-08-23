@@ -1,18 +1,29 @@
+import { useEffect, useCallback, useState } from 'react';
+
 import classes from './Header.module.css';
 
 import logo from '../../assets/logo/logo-option-2.png';
 import qrCode from '../../assets/logo/qr-code_4.png';
 
 const Header = props => {
+  const [sel, setSel] = useState('cz');
+  
   const langs = Object.keys(props.lngs);
   
-  const langHandler = e => {
+  const langHandler = useCallback(e => {
     props.setLang(e.target.value.toLowerCase());
-  }
+  }, [props]);
+
+  useEffect(() => {
+    setSel(localStorage.i18nextLng);
+  }, [langHandler])
 
   return (
     <header className={classes.header}>
-        <select className={classes['lang__selector']} onChange={langHandler}>
+      <select className={classes['lang__selector']} 
+              value={sel.toUpperCase()} 
+              onChange={langHandler}
+      >
         {langs.map((lng) => {
           return (
             <option 
