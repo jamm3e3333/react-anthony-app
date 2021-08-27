@@ -12,5 +12,4 @@ services:
 
     client:
         volumes:
-            - /app/node_modules
             - ./monitor-parking:/app

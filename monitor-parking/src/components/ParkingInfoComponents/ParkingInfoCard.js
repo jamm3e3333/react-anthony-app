@@ -4,7 +4,7 @@ import ParkingCard from './ParkingItems/ParkingCard'
 import ParkingTiming from './ParkingItems/ParkingTiming';
 import ParkingMap from './ParkingItems/ParkingMap';
 
-const url = '/api/monitor/data';
+const url = 'api/monitor/data';
 // const urlLocal = 'http://localhost:3010/monitor/data';
 
 const ParkingInfoCard = props => {
@@ -23,15 +23,17 @@ const ParkingInfoCard = props => {
             setError(false);
 
             const response = await fetch(url);
-    
-            if(response.status !== 200) {
-            throw new Error();
+            
+            if(!response.ok) {
+                throw new Error('Chyba pri odesilani dat');
             }
             const data = await response.json();
-            const { parkingLots } = data; //updated data
-            if(!parkingLots.length) {
+
+            if(!data) {
                 throw new Error('No data present.');
             }
+            
+            const { parkingLots } = data; //updated data
     
             setlastDetectionState(data.lastDetection);
         

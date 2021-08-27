@@ -14,14 +14,12 @@ services:
             - "3080:80"
 
     api:
-        image: jamm3e3333/react-anthony-app_api
         build:
             dockerfile: Dockerfile
             context: ./express-server
-        
 
     client:
-        image: jamm3e3333/react-anthony-app_client
+        
         stdin_open: true
         build: 
             dockerfile: Dockerfile

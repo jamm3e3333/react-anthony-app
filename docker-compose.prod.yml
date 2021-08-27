@@ -3,8 +3,11 @@ version: "3"
 services: 
 
     api:
+        image: jamm3e3333/react-anthony-app_api
         environment: 
             - PORT=${PORT}
             - USER=${USER}
             - PASS=${PASS}
         command: node index.js
+    client:
+        image: jamm3e3333/react-anthony-app_client

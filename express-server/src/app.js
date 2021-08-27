@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/monitor/data', cors(), (req, res) => {
-    
     res.status(200)
         .send(data);
 })
