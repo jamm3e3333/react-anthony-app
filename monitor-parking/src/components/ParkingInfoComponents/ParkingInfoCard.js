@@ -5,7 +5,6 @@ import ParkingTiming from './ParkingItems/ParkingTiming';
 import ParkingMap from './ParkingItems/ParkingMap';
 
 const url = 'api/monitor/data';
-// const urlLocal = 'http://localhost:3010/monitor/data';
 
 const ParkingInfoCard = props => {
 
