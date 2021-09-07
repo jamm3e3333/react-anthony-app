@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const processData = require('./utils/processData');
 
@@ -26,7 +25,7 @@ app.get('/', (req, res) => {
     res.send("<h1>hello from express server!</h1>");
 });
 
-app.get('/monitor/data', cors(), (req, res) => {
+app.get('/monitor/data', (req, res) => {
     res.status(200)
         .send(data);
 })
